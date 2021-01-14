@@ -20,8 +20,8 @@ class Intro(intro.Intro):
             'div', {'class': 'pic'})[0].img['src'].strip()
         info = book_info(
             'div', {'id': 'info'})[0]
-        intro['title'] = info.h1.text.strip()
+        intro['title'] = info.h1.next.strip()
         intro['author'] = info.h1.small.a.text.strip()
         intro['desc'] = info(
             'div', {'class': 'bookinfo_intro'})[0].text.strip()
-        return intro
+        return self.url, intro
